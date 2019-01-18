@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+<body>
+
+  <h2 th:text="#{vet}">Veterinarians</h2>
+
+  <table id="vets" class="table table-striped">
+    <thead>
+      <tr>
+        <th th:text="#{name}">Name</th>
+        <th th:text="#{specialties}">Specialties</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="vet : ${vets.vetList}">
+        <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+        <td><span th:each="specialty : ${vet.specialties}"
+          th:text="${specialty.name + ' '}" /> <span
+          th:if="${vet.nrOfSpecialties == 0}">none</span></td>
+          <th>
+               <a th:href="@{/vets/edit/__${vet.id}__}"  >Editar</a>
+             
+              <a th:href="@{/vet/delete/__${vet.id}__}"  >Eliminar</a>
+          </th>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div style="text-align: center">
+      
+      <br>
+      <br>
+      <a class="btn btn-default" th:href="@{/vets/new}" >Agregar Veterinarios</a>
+  </div>
+  
+
+
+</body>
+</html>

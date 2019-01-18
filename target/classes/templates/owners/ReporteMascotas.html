@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'pets')}">
+
+  <body>
+  
+    <br />
+    <br />
+    <br />
+    <h2>Pets</h2>
+  
+    <table id="pets" class="table table-striped">
+  
+      
+      <thead>
+          <tr>
+            <th th:text="#{name}">Name</th>
+            <th th:text="#{birthDate}">Birth Date</th>
+            <th th:text="#{type}">Type</th>
+            <th th:text="#{owner}">Owner</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="pet : ${selections}">
+      <td th:text="${pet.name}" /></td>
+      <td th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}" /></td>
+      <td th:text="${pet.type}" /></td>
+        <td th:text="${pet.owner.getFirstName()}" />
+    </tr>
+    </tbody>
+    </table>
+  
+  </body>
+
+</html>

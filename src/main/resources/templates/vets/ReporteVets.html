@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+    <body>
+    <h2 th:text="#{vet}">Veterinarians</h2>
+
+        <table id="vets" class="table table-striped">
+            <thead>
+            <tr>
+            <th th:text="#{name}">Name</th>
+            <th th:text="#{specialties}">Specialties</th>
+<!--            <th>Acciones</th>-->
+            </tr>
+             </thead>
+        <tbody>
+            <tr th:each="vet : ${selections}">
+            <td th:text="${vet.firstName + ' ' + vet.lastName}"></td>
+            <td><span th:each="specialty : ${vet.specialties}" th:text="${specialty.name + ' '}" /> <span th:if="${vet.nrOfSpecialties == 0}">none</span></td>
+          
+        </tr>
+        </tbody>
+  </table>
+    </body>
+</html>
