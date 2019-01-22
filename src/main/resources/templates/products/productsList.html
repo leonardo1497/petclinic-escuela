@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'products')}">
+
+  <body>
+
+    <h2 th:text="#{product}">Medicaments</h2>
+
+    <table id="vets" class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;" th:text="#{name}">Nombre</th>
+            <th style="width: 200px;" th:text="#{descripcion}">Descripcion</th>
+            <th style="width: 200px;" th:text="#{precio}">Precio</th>
+            <th style="width: 200px;" th:text="#{existencia}">Existencia</th>
+            <th style="width: 200px;" th:text="#{fotografia}">Fotografia</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="product : ${selections}">
+              
+<!--                  <a th:href="@{/medicament/__${medicament.id}__}" th:text="${medicament.nombre}"/></a>-->
+                  <td th:text="${product.nombre}"/>
+              
+              <td th:text="${product.descripcion}"/>
+              <td th:text="${product.precio}"/>
+              <td th:text="${product.existencia}"/>
+              <td th:text="${product.fotografia}"/>
+              
+              <td>
+                  <a th:href="@{/product/edit/__${product.id}__}">Editar</a>
+                  <a th:href="@{/product/delete/__${product.id}__}">Eliminar</a>
+                  
+              </td>
+          </tr>
+        </tbody>
+    </table>
+
+  </body>
+</html>

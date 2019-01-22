@@ -2,6 +2,7 @@ org\springframework\samples\petclinic\system\CrashController.class
 org\springframework\samples\petclinic\owner\OwnerRepository.class
 org\springframework\samples\petclinic\owner\PetValidator.class
 org\springframework\samples\petclinic\medicament\Medicament.class
+org\springframework\sample\petclinic\products\ProoductsController.class
 org\springframework\samples\petclinic\vet\Vet.class
 org\springframework\samples\petclinic\vet\Specialty.class
 org\springframework\samples\petclinic\vet\SpecialtyFormatter.class
@@ -16,6 +17,7 @@ org\springframework\samples\petclinic\owner\VisitController.class
 org\springframework\samples\petclinic\system\WelcomeController.class
 org\springframework\samples\petclinic\owner\Owner.class
 org\springframework\samples\petclinic\visit\VisitRepository.class
+org\springframework\sample\petclinic\products\ProductsRepository.class
 org\springframework\samples\petclinic\vet\VetRepository.class
 org\springframework\samples\petclinic\model\Person.class
 org\springframework\samples\petclinic\model\BaseEntity.class
@@ -24,5 +26,6 @@ org\springframework\samples\petclinic\vet\VetController.class
 org\springframework\samples\petclinic\owner\OwnerController.class
 org\springframework\samples\petclinic\owner\Pet.class
 org\springframework\samples\petclinic\system\CacheConfiguration.class
+org\springframework\sample\petclinic\products\Products.class
 org\springframework\samples\petclinic\model\NamedEntity.class
 org\springframework\samples\petclinic\PetClinicApplication.class

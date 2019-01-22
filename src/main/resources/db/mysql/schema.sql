@@ -73,3 +73,13 @@ CREATE TABLE IF NOT EXISTS medicaments(
   presentacion VARCHAR(80),
   INDEX(nombre)
 ) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS products(
+  id INT(4) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(80),
+  descripcion VARCHAR(255),
+  precio FLOAT(24),
+  existencia INT(10),
+  fotografia VARCHAR(255),
+  INDEX(nombre)
+) engine=InnoDB;

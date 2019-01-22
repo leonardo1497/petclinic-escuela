@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'products')}">
+
+  <body>
+  
+  
+    <h2 th:text="#{infoP}">Medicament Information</h2>
+  
+  
+    <table class="table table-striped" th:object="${product}">
+      <tr>
+        <th th:text="#{name}">Name</th>
+        <td><b th:text="*{nombre}"></b></td>
+      </tr>
+      <tr>
+        <th th:text="#{descripcion}">Ingredients</th>
+        <td th:text="*{descripcion}" /></td>
+      </tr>
+      <tr>
+        <th th:text="#{precio}">Presentation</th>
+        <td th:text="*{precio}" /></td>
+      </tr>
+      <tr>
+        <th th:text="#{existencia}">Presentation</th>
+        <td th:text="*{existencia}" /></td>
+      </tr>
+      <tr>
+        <th th:text="#{fotografia}">Presentation</th>
+        <td th:text="*{fotografia}" /></td>
+      </tr>
+    </table>
+  
+  
+  
+  </body>
+
+</html>

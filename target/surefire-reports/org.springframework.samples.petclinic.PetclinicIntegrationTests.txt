@@ -1,12 +1,10 @@
 -------------------------------------------------------------------------------
 Test set: org.springframework.samples.petclinic.PetclinicIntegrationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.965 s <<< FAILURE! - in org.springframework.samples.petclinic.PetclinicIntegrationTests
-testFindAll(org.springframework.samples.petclinic.PetclinicIntegrationTests)  Time elapsed: 0.172 s  <<< ERROR!
-org.springframework.dao.InvalidDataAccessResourceUsageException: could not extract ResultSet; SQL [n/a]; nested exception is org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-	at org.springframework.samples.petclinic.PetclinicIntegrationTests.testFindAll(PetclinicIntegrationTests.java:36)
-Caused by: org.hibernate.exception.SQLGrammarException: could not extract ResultSet
-	at org.springframework.samples.petclinic.PetclinicIntegrationTests.testFindAll(PetclinicIntegrationTests.java:36)
-Caused by: java.sql.SQLSyntaxErrorException: Table 'petclinic.vets' doesn't exist
-	at org.springframework.samples.petclinic.PetclinicIntegrationTests.testFindAll(PetclinicIntegrationTests.java:36)
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 11.272 s <<< FAILURE! - in org.springframework.samples.petclinic.PetclinicIntegrationTests
+testFindAll(org.springframework.samples.petclinic.PetclinicIntegrationTests)  Time elapsed: 0.006 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+Caused by: org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+Caused by: org.hibernate.HibernateException: Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
 
