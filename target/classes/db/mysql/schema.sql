@@ -83,3 +83,13 @@ CREATE TABLE IF NOT EXISTS products(
   fotografia VARCHAR(255),
   INDEX(nombre)
 ) engine=InnoDB;
+
+CREATE TABLE IF NOT EXISTS auth_user (
+  auth_user_id int(11) NOT NULL AUTO_INCREMENT,
+  first_name varchar(255) NOT NULL,
+  last_name varchar(255) NOT NULL,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  activo tinyint(1) default 1,
+  PRIMARY KEY (auth_user_id)
+);
