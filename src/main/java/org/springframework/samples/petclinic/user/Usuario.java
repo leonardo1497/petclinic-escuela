@@ -11,20 +11,18 @@ package org.springframework.samples.petclinic.user;
  */
 import java.util.Set;
 
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "auth_user")
-public class User {
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -43,15 +41,19 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "mobile")
+	/*@Column(name = "mobile")
 	private String mobile;
+*/
+	@Column(name = "activo")
+	private boolean activo;
 
-	@Column(name = "status")
-	private String status;
+        public boolean isActivo() {
+            return activo;
+        }
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "auth_user_role", joinColumns = @JoinColumn(name = "auth_user_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
-	private Set<Role> roles;
+        public void setActivo(boolean activo) {
+            this.activo = activo;
+        }
 
 	public int getId() {
 		return id;
@@ -93,29 +95,16 @@ public class User {
 		this.password = password;
 	}
 
-	public String getMobile() {
+	/*public String getMobile() {
 		return mobile;
 	}
 
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
-	}
+	}*/
 
-	public String getStatus() {
-		return status;
-	}
 
-	public void setStatus(String status) {
-		this.status = status;
-	}
 
-	public Set<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
 	
 
 }

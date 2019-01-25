@@ -12,21 +12,26 @@ and open the template in the editor.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <link rel="stylesheet" th:href="@{/resources/css/petclinic.css}"/>
 </head>
 
 <body style="background-color:#ededed;">
-	<div style="background-color:#30CF4D;height:50px;"></div>
+	<div class="navbar navbar-default " style="height:50px;"></div>
 	<div class="container-fluid">
 		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 80px;background-color:#fff;padding:20px;border:solid 1px #ddd;">
+                    <div class="text-center">
+                        <img class="rounded" src="../static/resources/images/spring-pivotal-logo.png" th:src="@{/resources/images/spring-pivotal-logo.png}"/>
+                    </div>
+                    <br>
 			<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
 			<form th:action="@{/login}" method="POST" class="form-signin">
-				<h3 class="form-signin-heading" >Iniciar sesion</h3>
+				<h2  class="form-signin-heading text-center" >Iniciar sesion</h2>
 				<br /> <input type="text" id="email" name="email" th:placeholder="Correo" class="form-control" /> <br /> <input type="password" th:placeholder="Contraseña" id="password" name="password" class="form-control" /> <br />
 
 				<div align="center" th:if="${param.error}">
-					<p style="font-size: 20; color: #FF1C19;">Email or Password is invalid.</p>
+					<p style="font-size: 20; color: #FF1C19;">Correo o contraseña inválidos.</p>
 				</div>
-				<button class="btn btn-lg btn-primary" name="Submit" value="Login" type="Submit" style="margin-right:10px;">Entrar</button>
+				<button class="btn btn-default" name="Submit" value="Login" type="Submit" style="margin-right:10px;">Entrar</button>
 			</form>
 		</div>
 	</div>

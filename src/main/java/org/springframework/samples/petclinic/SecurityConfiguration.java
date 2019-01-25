@@ -12,8 +12,10 @@ package org.springframework.samples.petclinic;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.samples.petclinic.user.UserService;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
@@ -26,24 +28,18 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	/*@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;*/
 	
 
+        @Autowired
+	@Qualifier("UserService")
+	private UserService service;
 
-	@Autowired
-	private DataSource dataSource;
-
-	@Value("${spring.queries.users-query}")
-	private String usersQuery;
-
-	@Value("${spring.queries.roles-query}")
-	private String rolesQuery;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.jdbcAuthentication().usersByUsernameQuery(usersQuery).authoritiesByUsernameQuery(rolesQuery)
-				.dataSource(dataSource).passwordEncoder(bCryptPasswordEncoder);
+	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+            		auth.userDetailsService(service);
 	}
 
 	@Override
@@ -54,7 +50,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/").permitAll()
 				.antMatchers("/login").permitAll()
 				.antMatchers("/register").permitAll()
-				.antMatchers("/welcome/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.anyRequest().authenticated()
 				.and()
 				// form login
@@ -63,7 +58,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.failureUrl("/login?error=true")
 				.defaultSuccessUrl("/welcome")
 				.usernameParameter("email")
-				.passwordParameter("password")
+                                .passwordParameter("password")
+                                 
 				.and()
 				// logout
 				.logout()
@@ -71,6 +67,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.logoutSuccessUrl("/").and()
 				.exceptionHandling()
 				.accessDeniedPage("/access-denied");
+                
+                
 	}
 
 	@Override

@@ -22,21 +22,27 @@ public class AuthenticationController {
 	@RequestMapping(value = {"/", "/login" }, method = RequestMethod.GET)
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("login"); // resources/template/login.html
+		modelAndView.setViewName("login"); 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView register() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("register"); // resources/template/register.html
+		modelAndView.setViewName("register");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public ModelAndView home() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("welcome"); // resources/template/home.html
+		modelAndView.setViewName("welcome"); 
+		return modelAndView;
+	}
+        @RequestMapping(value = "/logout", method = RequestMethod.GET)
+            public ModelAndView logout() {
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/login"); 
 		return modelAndView;
 	}
 }
