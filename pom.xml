@@ -138,6 +138,12 @@
       <version>5.1.1.RELEASE</version>
       <type>jar</type>
     </dependency>
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20180813</version>
+      <type>jar</type>
+    </dependency>
   </dependencies>
 
   <build>

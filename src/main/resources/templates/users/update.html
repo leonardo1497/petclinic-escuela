@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+<body>
+
+  <h2>Usuarios</h2>
+  
+  <form th:object="${usuario}" class="form-horizontal" id="add-vet-form" method="post">
+    <div class="form-group has-feedback">
+      <input
+        th:replace="~{fragments/inputField :: input (#{name}, 'name', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input (#{lastName}, 'lastName', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input (Email, 'email', 'text')}" />
+      <input
+        th:replace="~{fragments/inputField :: input ('Codigo Postal', 'codigo', 'text')}" /> 
+      <input
+        th:replace="~{fragments/inputField :: input (Municipio, 'municipio', 'text')}" /> 
+      <input
+          th:replace="~{fragments/inputField :: input ('Password', 'password', 'text')}" />
+      
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+          class="btn btn-default" type="submit" >Agregar y guardar</button>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
