@@ -80,6 +80,6 @@ CREATE TABLE IF NOT EXISTS products(
   descripcion VARCHAR(255),
   precio FLOAT(24),
   existencia INT(10),
-  fotografia VARCHAR(255),
+  foto VARCHAR(255),
   INDEX(nombre)
 ) engine=InnoDB;
