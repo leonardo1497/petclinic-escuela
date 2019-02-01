@@ -39,12 +39,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-            		auth.userDetailsService(service);
+                auth.userDetailsService(service);
+
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-
 		http.authorizeRequests()
 				// URLs matching for access rights
 				.antMatchers("/").permitAll()

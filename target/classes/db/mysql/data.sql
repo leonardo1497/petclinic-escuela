@@ -59,6 +59,6 @@ INSERT IGNORE INTO medicaments VALUES (3, 'amoxicilina','zenteno','tabletas');
 
 /*usuarios*/
 
-
+/*Contraseña: abc123ABC*/
 insert into auth_user (auth_user_id,first_name,last_name,email,password,activo) values (1,'leo','lopez','admin@gmail.com','$2a$10$DD/FQ0hTIprg3fGarZl1reK1f7tzgM4RuFKjAKyun0Si60w6g3v5i',1);
 

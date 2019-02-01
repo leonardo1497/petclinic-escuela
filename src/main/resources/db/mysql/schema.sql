@@ -92,4 +92,11 @@ CREATE TABLE IF NOT EXISTS auth_user (
   password varchar(255) NOT NULL,
   activo tinyint(1) default 1,
   PRIMARY KEY (auth_user_id)
-);
+) ENGINE=InnoDB;
+CREATE TABLE IF NOT EXISTS sesiones (
+  id int(11) NOT NULL,
+  correo varchar(100) NOT NULL,
+  fecha varchar(30) NOT NULL,
+  hora varchar(10) NOT NULL,
+  exito varchar(30) NOT NULL
+) ENGINE=InnoDB;

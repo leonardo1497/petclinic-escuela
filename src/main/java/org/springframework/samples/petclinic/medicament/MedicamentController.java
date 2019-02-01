@@ -81,6 +81,7 @@ class MedicamentController {
             return "redirect:/medicament/" + medicament.getId();
         } else {
             // multiple owners found
+            System.out.println("dfghjgfdsasdfghjkjhgfd "+results);
             model.put("selections", results);
             return "medicaments/medicamentsList";
         }
