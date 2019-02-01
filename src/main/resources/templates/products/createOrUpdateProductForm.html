@@ -14,7 +14,8 @@
         th:replace="~{fragments/inputField :: input (#{precio}, 'precio', 'float')}" />
       <input
         th:replace="~{fragments/inputField :: input (#{existencia}, 'existencia', 'text')}" />
-      <input type="file" name="file"/>
+      <input type="hidden" id="foto" name="foto" th:value="@{${product.foto}}">
+      <input id="imagen" type="file" name="imagen" class="file-input" required />
     </div>
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">

@@ -5,12 +5,20 @@
  */
 package org.springframework.samples.petclinic.product;
 
+import java.io.IOException;
 import org.springframework.samples.petclinic.medicament.*;
 import java.util.Collection;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -24,19 +32,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
  *
  * @author Daniel
  */
-@RestController
+@Controller
 class ProductController {
 
     private static final String VIEWS_PRODUCT_CREATE_OR_UPDATE_FORM = "products/createOrUpdateProductForm";
+    private final FileStorageService fileStorageService;
     private final ProductRepository products;
-    
 
-    public ProductController(ProductRepository clinicService) {
+    @Autowired
+    public ProductController(FileStorageService fileStorageService, ProductRepository clinicService) {
+        this.fileStorageService = fileStorageService;
         this.products = clinicService;
     }
 
@@ -53,11 +64,18 @@ class ProductController {
     }
 
     @PostMapping("/product/new")
-    public String processCreationForm(@Valid Product product, BindingResult result,@RequestParam("file") MultipartFile file) {
+    public String processCreationForm(@Valid Product product, BindingResult result, @RequestParam("imagen") MultipartFile imagen) {
         if (result.hasErrors()) {
             return VIEWS_PRODUCT_CREATE_OR_UPDATE_FORM;
         } else {
-            product.setFotografia("Prueba de archivo");
+            product.setFotografia(imagen.getOriginalFilename());
+            String fileName = fileStorageService.store(imagen);
+
+            String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                    .path("/downloadFile/")
+                    .path(fileName)
+                    .toUriString();
+            System.out.println("URI:"+fileDownloadUri);
             this.products.save(product);
             return "redirect:/product/find";
         }
@@ -94,7 +112,7 @@ class ProductController {
             return "products/productsList";
         }
     }
-    
+
     @GetMapping("/products/report")
     public String processFindFormReport(Product product, BindingResult result, Map<String, Object> model) {
 
