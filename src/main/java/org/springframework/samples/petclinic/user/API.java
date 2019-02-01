@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import static java.nio.charset.StandardCharsets.ISO_8859_1;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import org.json.JSONObject;
 
 
@@ -38,7 +40,7 @@ public class API {
         this.estado = estado;
     }
     
-    public void WS (String cp,String muni, String edo){
+    public boolean WS (String cp,String mun){
         API api = new API();
         try {
             URL url = new URL("https://api-codigos-postales.herokuapp.com/v2/codigo_postal/"+cp);//your url i.e fetch data from .
@@ -68,11 +70,19 @@ public class API {
         } catch (Exception e) {
             System.out.println("Exception in NetClientGet:- " + e);
         }
-//        if(edo.equals(estado) && muni.equals(municipio)){
-//                return "";
-//        }else{
-//            return "Datos incorrectos";
-//        }
+        
+      
+        byte[] ptext = municipio.getBytes(ISO_8859_1); 
+        String value = new String(ptext, UTF_8); 
+        //System.out.println("Value"+value);
+        
+      if( mun.equals(value)){
+          return true;
+      }
+      else{
+          return false;
+      }
+            
     }
     
     public void WS (String cp){
@@ -112,8 +122,10 @@ public class API {
     
     public static void main(String[] args) {
         API api = new API();
-        api.WS("96700");
-    
+        boolean response;
+        response=api.WS("96700","Minatitlán");
+        System.out.println(response);
     }
+    
     
 }

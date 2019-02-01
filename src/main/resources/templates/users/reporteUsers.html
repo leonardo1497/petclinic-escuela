@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'vets')}">
+
+<body>
+
+  <h2>Usuarios</h2>
+
+  <table id="vets" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Codigo</th>
+        <th>Municipio</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="user : ${usuarios.userList}">
+        <td th:text="${user.name + ' ' + user.lastName}"></td>
+        <td th:text="${user.email}"></td>
+        <td th:text="${user.codigo}"></td>
+        <td th:text="${user.municipio}"></td>
+        <td>
+          <span th:if="${user.activo == true}">Activo</span>
+        <span th:if="${user.activo == false}">Inactivo</span></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <div style="text-align: center">
+      
+      <br>
+      <br>
+  </div>
+  
+
+
+</body>
+</html>

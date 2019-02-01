@@ -49,6 +49,12 @@ public class UserService implements UserDetailsService{
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		return bCryptPasswordEncoder;
 	}
-
+       
+    public boolean validarEstado(String cp, String state){
+        API api = new API();
+        boolean response;
+        response = api.WS(cp, state);
+        return response;
+    }
     
 }

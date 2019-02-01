@@ -69,6 +69,13 @@
                       <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
                       <span>Error</span>
                   </li>
+                  
+                  <li th:replace="::menuItem ('/usuarios.html','usuarios','usuarios','th-list',Usuarios)">
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>Usuarios</span> 
+                  </li>
+    
+         
                   <li  th:replace="::menuItem ('/logout','logout','Cerrar sesion','log-out','Salir')">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
                       <span>Salir</span> 

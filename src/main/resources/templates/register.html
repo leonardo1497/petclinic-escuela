@@ -12,9 +12,10 @@ and open the template in the editor.
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" th:href="@{/resources/css/petclinic.css}"/>
 </head>
 <body style="background-color: #ededed;">
-	<div style="background-color: #337ab7; height: 50px;"></div>
+	<div class="navbar navbar-default" style="height: 50px;"></div>
 	<div class="container-fluid" style="margin-top: 30px;">
 
 		<div class="row col-lg-4 col-lg-offset-4" style="margin-top: 40px; background-color: #fff; padding: 20px; border: solid 1px #ddd;">
@@ -49,7 +50,7 @@ and open the template in the editor.
 					<div class="">
 						<input type="text" th:field="*{municipio}" placeholder="Municipio" class="form-control" />
 					</div>
-				</div>
+				</div>                                                                
 				<div class="form-group">
 					<div class="">
 						<button type="submit" class="btn btn-primary btn-block">Register User</button>
@@ -58,7 +59,7 @@ and open the template in the editor.
 				<span th:utext="${successMessage}"></span>
                                 <div class="alert aler-success alert-dismissible col-sm-12"
                                      th:if="${(bindingResult != null && bindingResult.getAllErrors() != null)}">
-                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="alert" aria-hidden="true">x</button>
                                     <ul th:each="data : ${bindingResult.getAllErrors()}">
                                         <li th:text="${data.getObjectName() +' :: '+ data.getDefaultMessage()}"></li>
                                     </ul>

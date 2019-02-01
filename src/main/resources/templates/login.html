@@ -31,7 +31,8 @@ and open the template in the editor.
 				<div align="center" th:if="${param.error}">
 					<p style="font-size: 20; color: #FF1C19;">Correo o contraseña inválidos.</p>
 				</div>
-				<button class="btn btn-default" name="Submit" value="Login" type="Submit" style="margin-right:10px;">Entrar</button>
+				<button class="btn btn-default" name="Submit" value="Login" type="Submit" style="margin-right:10px;">Entrar</button>o 
+                                 <a class="btn btn-default" th:href="@{/register}">Crear Cuenta</a>
 			</form>
 		</div>
 	</div>

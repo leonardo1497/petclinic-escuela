@@ -19,6 +19,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import org.springframework.samples.petclinic.model.BaseEntity;
 
 @Entity
@@ -31,21 +32,27 @@ public class Usuario /*extends BaseEntity*/{
     private int id;
 
     @Column(name = "first_name")
+    @NotEmpty
     private String name;
 
     @Column(name = "last_name")
+    @NotEmpty
     private String lastName;
 
     @Column(name = "email")
+    @NotEmpty
     private String email;
 
     @Column(name = "password")
+    @NotEmpty
     private String password;
     
     @Column(name = "codigo")
+    @NotEmpty
     private String codigo;
     
     @Column(name="municipio")
+    @NotEmpty
     private String municipio;
 
     public String getCodigo() {
