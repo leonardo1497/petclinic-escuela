@@ -40,6 +40,7 @@ class OwnerController {
 
     private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";
     private final OwnerRepository owners;
+    Owner owner;
     //private final PetRepository pets;
 
 
@@ -127,8 +128,11 @@ class OwnerController {
      */
     @GetMapping("/owners/{ownerId}")
     public ModelAndView showOwner(@PathVariable("ownerId") int ownerId) {
+        
         ModelAndView mav = new ModelAndView("owners/ownerDetails");
-        mav.addObject(this.owners.findById(ownerId));
+        owner = this.owners.findById(ownerId);
+        System.out.println(owner.getAddress());
+        mav.addObject(owner);
         return mav;
     }
     
@@ -139,6 +143,13 @@ class OwnerController {
             model.put("selections", results);
             return "owners/ReporteMascotas";
         
+    }
+    
+    @GetMapping("/reporteOwners")
+    public String showVets(Owner own, BindingResult result, Map<String, Object> model){
+          Collection<Owner> results = this.owners.findAllOwners();
+          model.put("Owners", results);
+        return "owners/ownersList";
     }
 
    

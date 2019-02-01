@@ -58,6 +58,10 @@ public interface OwnerRepository extends Repository<Owner, Integer> {
     @Transactional (readOnly= true)
     Collection<Pet> findAll();
     
+    @Query("SELECT owner FROM Owner owner")
+    @Transactional (readOnly = true)
+    Collection<Owner> findAllOwners();
+    
     
 
     /**

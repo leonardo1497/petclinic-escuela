@@ -13,19 +13,19 @@
             <th style="width: 200px;" th:text="#{address}">Address</th>
             <th th:text="#{city}">City</th>
             <th style="width: 120px" th:text="#{telephone}">Telephone</th>
-            <th th:text="#{pets}">Pets</th>
+            <!--th th:text="#{pets}">Pets</th-->
         
         </tr>
         </thead>
         <tbody>
-          <tr th:each="owner : ${selections}">
+          <tr th:each="owner : ${Owners}">
               <td>
                   <a th:href="@{/owners/__${owner.id}__}" th:text="${owner.firstName + ' ' + owner.lastName}"/></a>
               </td>
               <td th:text="${owner.address}"/>
               <td th:text="${owner.city}"/>
               <td th:text="${owner.telephone}"/>
-              <td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td>
+              <!--td><span th:each="pet : ${owner.pets}" th:text="${pet.name} "/></td-->
           </tr>
         </tbody>
     </table>
