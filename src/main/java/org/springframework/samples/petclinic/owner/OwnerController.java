@@ -149,7 +149,7 @@ class OwnerController {
     public String showVets(Owner own, BindingResult result, Map<String, Object> model){
           Collection<Owner> results = this.owners.findAllOwners();
           model.put("Owners", results);
-        return "owners/ownersList";
+        return "owners/ownerReport";
     }
 
    
