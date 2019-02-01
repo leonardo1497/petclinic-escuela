@@ -6,6 +6,9 @@ org\springframework\samples\petclinic\owner\PetValidator.class
 org\springframework\samples\petclinic\user\UserRepository.class
 org\springframework\samples\petclinic\user\UserService.class
 org\springframework\samples\petclinic\medicament\Medicament.class
+org\springframework\samples\petclinic\product\StorageService.class
+org\springframework\samples\petclinic\product\FileStorageException.class
+org\springframework\samples\petclinic\product\FileStorageService.class
 org\springframework\samples\petclinic\vet\Vet.class
 org\springframework\samples\petclinic\user\sesionesController.class
 org\springframework\samples\petclinic\vet\Specialty.class
@@ -23,8 +26,10 @@ org\springframework\samples\petclinic\owner\VisitController.class
 org\springframework\samples\petclinic\owner\Owner.class
 org\springframework\samples\petclinic\visit\VisitRepository.class
 org\springframework\samples\petclinic\vet\VetRepository.class
+org\springframework\samples\petclinic\product\StorageProperties.class
 org\springframework\samples\petclinic\model\Person.class
 org\springframework\samples\petclinic\model\BaseEntity.class
+org\springframework\samples\petclinic\product\MyFileNotFoundException.class
 org\springframework\samples\petclinic\owner\PetType.class
 org\springframework\samples\petclinic\SecurityConfiguration.class
 org\springframework\samples\petclinic\user\sesionesRepository.class

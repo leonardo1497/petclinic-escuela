@@ -27,8 +27,8 @@
         <td th:text="*{existencia}" /></td>
       </tr>
       <tr>
-        <th th:text="#{fotografia}">Presentation</th>
-        <td th:text="*{fotografia}" /></td>
+          <th th:text="#{fotografia}">Presentation</th>
+          <td><image style="border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 150px;" th:src="@{'/downloadFile/' + *{fotografia}}"/></td>
       </tr>
     </table>
   

@@ -24,7 +24,7 @@ public class Product extends BaseEntity {
     
     @Column(name = "nombre")
     @NotEmpty
-    private String nombre;
+    public String nombre;
 
     @Column(name = "descripcion")
     @NotEmpty
@@ -38,8 +38,9 @@ public class Product extends BaseEntity {
     @NotNull
     private int existencia;
     
-    @Column(name = "fotografia")
-    private String fotografia;
+    @Column(name = "foto")
+    public String foto;
+    
 
     public String getNombre() {
         return nombre;
@@ -74,11 +75,11 @@ public class Product extends BaseEntity {
     }
     
     public String getFotografia(){
-        return fotografia;
+        return this.foto;
     }
     
     public void setFotografia(String fotogafia){
-        this.fotografia = fotografia;
+        this.foto = fotogafia;
     }
 
 }

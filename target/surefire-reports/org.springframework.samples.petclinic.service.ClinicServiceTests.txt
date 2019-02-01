@@ -111,4 +111,3 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindPetWithCorrectId(ClinicServiceTests.java:133)
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: PETS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindPetWithCorrectId(ClinicServiceTests.java:133)
-

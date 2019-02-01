@@ -14,7 +14,6 @@
             <th style="width: 200px;" th:text="#{precio}">Precio</th>
             <th style="width: 200px;" th:text="#{existencia}">Existencia</th>
             <th style="width: 200px;" th:text="#{fotografia}">Fotografia</th>
-            <th style="width: 200px;" th:text="#{accion}">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -27,12 +26,6 @@
               <td th:text="${product.precio}"/>
               <td th:text="${product.existencia}"/>
               <td><image style="border: 1px solid #ddd;border-radius: 4px;padding: 5px;width: 150px;" th:src="@{'/downloadFile/' + ${product.fotografia}}"/></td>
-              
-              <td>
-                  <a th:href="@{/product/edit/__${product.id}__}">Editar</a>
-                  <a th:href="@{/product/delete/__${product.id}__}">Eliminar</a>
-                  
-              </td>
           </tr>
         </tbody>
     </table>

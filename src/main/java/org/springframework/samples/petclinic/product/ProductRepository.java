@@ -42,13 +42,13 @@ public interface ProductRepository extends Repository<Product, Integer>{
     
     /**
      * Save an {@link Product} to the data store, either inserting or updating it.
-     * @param medicament the {@link Product} to save
+     * @param product the {@link Product} to save
      */
-    void save(Product medicament);
+    void save(Product product);
     
     /**
      * Delete an {@link Product} to the data store
-     * @param medicament the {@link Product} to delete
+     * @param product the {@link Product} to delete
      */
-    void delete(Product medicament);
+    void delete(Product product);
 }
