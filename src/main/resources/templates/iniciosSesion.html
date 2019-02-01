@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{fragments/layout :: layout (~{::body},'sesiones')}">
+
+<body>
+
+  <h2 th:text="#{sesion}">Sesiones</h2>
+  <table id="sesiones" class="table table-striped">
+    <thead>
+      <tr>
+        <th th:text="#{correo}">Correo</th>
+        <th th:text="Fecha">Fecha</th>
+        <th th:text="Hora">Hora</th>
+        <th th:text="Exito">Exito</th>
+      </tr>
+    </thead>
+            <tbody>
+          <tr th:each="sesion : ${sesiones}">
+
+              <td th:text="${sesion.correo}"/>
+              <td th:text="${sesion.fecha}"/>
+              <td th:text="${sesion.hora}"/>
+              <td th:text="${sesion.exito}"/>
+
+          </tr>
+        </tbody>
+
+  </table>
+  <br>
+
+  
+
+
+</body>
+</html>
