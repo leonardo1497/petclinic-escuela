@@ -18,4 +18,6 @@ public interface StorageService {
     
 
     String store(MultipartFile file);
+    
+    Resource loadFileAsResource(String fileName);
 }
