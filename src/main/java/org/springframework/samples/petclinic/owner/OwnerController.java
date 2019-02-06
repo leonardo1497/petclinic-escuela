@@ -140,6 +140,16 @@ class OwnerController {
             return "owners/ReporteMascotas";
         
     }
+    
+    @GetMapping("/reporteOwners")
+    public String showVets(Owner own, BindingResult result, Map<String, Object> model) {
+
+        Collection<Owner> results = this.owners.findAllOwners();
+            model.put("Owners", results);
+            return "owners/ownerReport";
+        
+    }
+    
 
    
 }

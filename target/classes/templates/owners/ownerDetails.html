@@ -2,9 +2,8 @@
 
 <html xmlns:th="http://www.thymeleaf.org"
   th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
-
   <body>
-  
+    
   
     <h2 th:text="#{info}">Owner Information</h2>
   
@@ -27,12 +26,15 @@
         <td th:text="*{telephone}" /></td>
       </tr>
     </table>
-  
+    <div id="ownerMap" style="height: 350px; width: 1000px"></div>
+    <br>
+    <br>
+    <input type ="hidden" id ="direc" th:value="${owner.getAddress()}">
     <a th:href="@{{id}/edit(id=${owner.id})}" class="btn btn-default" th:text="#{editOwner}">Edit
       Owner</a>
     <a th:href="@{{id}/pets/new(id=${owner.id})}" class="btn btn-default" th:text="#{newPet}">Add
       New Pet</a>
-  
+    
     <br />
     <br />
     <br />
@@ -77,7 +79,36 @@
       </tr>
   
     </table>
-  
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVNBQQkfZQZ8zKMYqAveuGCJcYaouqkTo&callback=initMap"
+    async defer></script>
+    <script>
+        
+        var map;
+        function initMap() {       
+            map = new google.maps.Map(document.getElementById('ownerMap'), {
+                center: {lat: 16.617886, lng: -93.0967864},
+                zoom: 16
+            });
+            marker = new google.maps.Marker({
+                position: {lat: 16.617886, lng: -93.0967864},
+                draggable: false
+            });
+            marker.setMap(map)
+            var address = document.getElementById('direc').value; 
+            console.log(address);
+            var geocoder = new google.maps.Geocoder()
+            geocoder.geocode({'address': address}, function(results, status){
+                if (status == 'OK'){
+                    marker.setPosition(results[0].geometry.location);
+                    map.setCenter(marker.getPosition());
+                    
+                }
+            });
+        }
+        
+        
+    </script>
   </body>
 
 </html>

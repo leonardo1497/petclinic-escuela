@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: org.springframework.samples.petclinic.service.ClinicServiceTests
 -------------------------------------------------------------------------------
-Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 2.657 s <<< FAILURE! - in org.springframework.samples.petclinic.service.ClinicServiceTests
-shouldFindVets(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.04 s  <<< ERROR!
+Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 2.263 s <<< FAILURE! - in org.springframework.samples.petclinic.service.ClinicServiceTests
+shouldFindVets(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.064 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select vet0_.id as id1_9_, vet0_.first_name as first_na2_9_, vet0_.last_name as last_nam3_9_, vet0_.business_hours as business4_9_, vet0_.telephone as telephon5_9_ from vets vet0_]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindVets(ClinicServiceTests.java:188)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -12,7 +12,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: VETS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindVets(ClinicServiceTests.java:188)
 
-shouldFindOwnersByLastName(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.028 s  <<< ERROR!
+shouldFindOwnersByLastName(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.049 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select distinct owner0_.id as id1_2_0_, pets1_.id as id1_3_1_, owner0_.first_name as first_na2_2_0_, owner0_.last_name as last_nam3_2_0_, owner0_.address as address4_2_0_, owner0_.city as city5_2_0_, owner0_.telephone as telephon6_2_0_, pets1_.name as name2_3_1_, pets1_.birth_date as birth_da3_3_1_, pets1_.owner_id as owner_id4_3_1_, pets1_.type_id as type_id5_3_1_, pets1_.owner_id as owner_id4_3_0__, pets1_.id as id1_3_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindOwnersByLastName(ClinicServiceTests.java:81)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -42,7 +42,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: OWNERS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldUpdateOwner(ClinicServiceTests.java:119)
 
-shouldFindVisitsByPetId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.018 s  <<< ERROR!
+shouldFindVisitsByPetId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.019 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select visit0_.id as id1_10_, visit0_.visit_date as visit_da2_10_, visit0_.description as descript3_10_, visit0_.pet_id as pet_id4_10_ from visits visit0_ where visit0_.pet_id=?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindVisitsByPetId(ClinicServiceTests.java:215)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -52,7 +52,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: VISITS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindVisitsByPetId(ClinicServiceTests.java:215)
 
-shouldInsertPetIntoDatabaseAndGenerateId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.01 s  <<< ERROR!
+shouldInsertPetIntoDatabaseAndGenerateId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.013 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select owner0_.id as id1_2_0_, pets1_.id as id1_3_1_, owner0_.first_name as first_na2_2_0_, owner0_.last_name as last_nam3_2_0_, owner0_.address as address4_2_0_, owner0_.city as city5_2_0_, owner0_.telephone as telephon6_2_0_, pets1_.name as name2_3_1_, pets1_.birth_date as birth_da3_3_1_, pets1_.owner_id as owner_id4_3_1_, pets1_.type_id as type_id5_3_1_, pets1_.owner_id as owner_id4_3_0__, pets1_.id as id1_3_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldInsertPetIntoDatabaseAndGenerateId(ClinicServiceTests.java:152)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -62,7 +62,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: OWNERS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldInsertPetIntoDatabaseAndGenerateId(ClinicServiceTests.java:152)
 
-shouldInsertOwner(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.012 s  <<< ERROR!
+shouldInsertOwner(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.039 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select distinct owner0_.id as id1_2_0_, pets1_.id as id1_3_1_, owner0_.first_name as first_na2_2_0_, owner0_.last_name as last_nam3_2_0_, owner0_.address as address4_2_0_, owner0_.city as city5_2_0_, owner0_.telephone as telephon6_2_0_, pets1_.name as name2_3_1_, pets1_.birth_date as birth_da3_3_1_, pets1_.owner_id as owner_id4_3_1_, pets1_.type_id as type_id5_3_1_, pets1_.owner_id as owner_id4_3_0__, pets1_.id as id1_3_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.last_name like ?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldInsertOwner(ClinicServiceTests.java:100)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -72,7 +72,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: OWNERS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldInsertOwner(ClinicServiceTests.java:100)
 
-shouldFindSingleOwnerWithPet(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.013 s  <<< ERROR!
+shouldFindSingleOwnerWithPet(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.039 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select owner0_.id as id1_2_0_, pets1_.id as id1_3_1_, owner0_.first_name as first_na2_2_0_, owner0_.last_name as last_nam3_2_0_, owner0_.address as address4_2_0_, owner0_.city as city5_2_0_, owner0_.telephone as telephon6_2_0_, pets1_.name as name2_3_1_, pets1_.birth_date as birth_da3_3_1_, pets1_.owner_id as owner_id4_3_1_, pets1_.type_id as type_id5_3_1_, pets1_.owner_id as owner_id4_3_0__, pets1_.id as id1_3_0__ from owners owner0_ left outer join pets pets1_ on owner0_.id=pets1_.owner_id where owner0_.id=?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindSingleOwnerWithPet(ClinicServiceTests.java:90)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -82,7 +82,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: OWNERS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindSingleOwnerWithPet(ClinicServiceTests.java:90)
 
-shouldUpdatePetName(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.023 s  <<< ERROR!
+shouldUpdatePetName(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.058 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select pet0_.id as id1_3_0_, pet0_.name as name2_3_0_, pet0_.birth_date as birth_da3_3_0_, pet0_.owner_id as owner_id4_3_0_, pet0_.type_id as type_id5_3_0_, owner1_.id as id1_2_1_, owner1_.first_name as first_na2_2_1_, owner1_.last_name as last_nam3_2_1_, owner1_.address as address4_2_1_, owner1_.city as city5_2_1_, owner1_.telephone as telephon6_2_1_, pettype2_.id as id1_7_2_, pettype2_.name as name2_7_2_, visits3_.pet_id as pet_id4_10_3_, visits3_.id as id1_10_3_, visits3_.id as id1_10_4_, visits3_.visit_date as visit_da2_10_4_, visits3_.description as descript3_10_4_, visits3_.pet_id as pet_id4_10_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldUpdatePetName(ClinicServiceTests.java:175)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -92,7 +92,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: PETS
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldUpdatePetName(ClinicServiceTests.java:175)
 
-shouldFindAllPetTypes(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.5 s  <<< ERROR!
+shouldFindAllPetTypes(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.009 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select pettype0_.id as id1_7_, pettype0_.name as name2_7_ from types pettype0_ order by pettype0_.name]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindAllPetTypes(ClinicServiceTests.java:141)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement
@@ -102,7 +102,7 @@ Caused by: java.sql.SQLSyntaxErrorException: usuario no tiene privilegios sufici
 Caused by: org.hsqldb.HsqlException: usuario no tiene privilegios suficientes o objeto no encontrado: TYPES
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindAllPetTypes(ClinicServiceTests.java:141)
 
-shouldFindPetWithCorrectId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.016 s  <<< ERROR!
+shouldFindPetWithCorrectId(org.springframework.samples.petclinic.service.ClinicServiceTests)  Time elapsed: 0.042 s  <<< ERROR!
 org.springframework.dao.InvalidDataAccessResourceUsageException: could not prepare statement; SQL [select pet0_.id as id1_3_0_, pet0_.name as name2_3_0_, pet0_.birth_date as birth_da3_3_0_, pet0_.owner_id as owner_id4_3_0_, pet0_.type_id as type_id5_3_0_, owner1_.id as id1_2_1_, owner1_.first_name as first_na2_2_1_, owner1_.last_name as last_nam3_2_1_, owner1_.address as address4_2_1_, owner1_.city as city5_2_1_, owner1_.telephone as telephon6_2_1_, pettype2_.id as id1_7_2_, pettype2_.name as name2_7_2_, visits3_.pet_id as pet_id4_10_3_, visits3_.id as id1_10_3_, visits3_.id as id1_10_4_, visits3_.visit_date as visit_da2_10_4_, visits3_.description as descript3_10_4_, visits3_.pet_id as pet_id4_10_4_ from pets pet0_ left outer join owners owner1_ on pet0_.owner_id=owner1_.id left outer join types pettype2_ on pet0_.type_id=pettype2_.id left outer join visits visits3_ on pet0_.id=visits3_.pet_id where pet0_.id=?]; nested exception is org.hibernate.exception.SQLGrammarException: could not prepare statement
 	at org.springframework.samples.petclinic.service.ClinicServiceTests.shouldFindPetWithCorrectId(ClinicServiceTests.java:133)
 Caused by: org.hibernate.exception.SQLGrammarException: could not prepare statement

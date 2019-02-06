@@ -29,7 +29,6 @@ import org.springframework.stereotype.Service;
  */
 @Service("UserService")
 public class UserService implements UserDetailsService{
-    String emailUser="";
     @Autowired
     @Qualifier("sesionesRepository")
     private sesionesRepository init;
@@ -49,7 +48,12 @@ public class UserService implements UserDetailsService{
             ss.setCorreo(email);
             ss.setFecha(dateFormat.format(date));
             ss.setHora(hourFormat.format(date));
-            ss.setExito("Exitoso");
+            if(user.isActivo()){
+                ss.setExito("Exitoso");
+            }else{
+                ss.setExito("Fallido");
+            }
+            
             this.init.save(ss);
             return new User(user.getEmail(),user.getPassword(),user.isActivo(),user.isActivo(),user.isActivo(), user.isActivo(),buildGranted());
         }catch(Exception e){
@@ -71,7 +75,7 @@ public class UserService implements UserDetailsService{
     public static NoOpPasswordEncoder passwordEncoder() {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }*/
-    	@Bean
+    @Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		return bCryptPasswordEncoder;

@@ -80,7 +80,11 @@
                       <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                       <span>Usuarios</span> 
                   </li>
-    
+                  
+                    <li th:replace="::menuItem ('/reporteOwners','Owners','Reporte Propietarios','th-list','Reporte Propietarios')">
+                      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                      <span>Usuarios</span> 
+                    </li>
          
                   <li  th:replace="::menuItem ('/logout','logout','Cerrar sesion','log-out','Salir')">
                       <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
